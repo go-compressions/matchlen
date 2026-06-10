@@ -1,4 +1,4 @@
-//go:build !amd64 && !arm64 && !riscv64
+//go:build !amd64 && !arm64 && !riscv64 && !loong64
 
 package matchlen
 
