@@ -1,5 +1,7 @@
 # matchlen
 
+> **Moved.** matchlen now lives at **[github.com/go-simd/matchlen](https://github.com/go-simd/matchlen)** (a general SIMD primitive, not compression-specific). Update imports to `github.com/go-simd/matchlen`. This copy is frozen at v0.1.1.
+
 `MatchLen(a, b []byte) int` — the length of the common prefix of two byte
 slices. It is the core primitive of every LZ-family compressor's match-finder
 (LZ4, zstd, LZFSE/LZVN, brotli, …) and the single most SIMD-amenable spot in LZ
