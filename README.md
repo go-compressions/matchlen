@@ -30,6 +30,15 @@ n := matchlen.MatchLen(a, b) // a[:n] == b[:n], n maximal
 16-byte SIMD strides vs a naive byte loop, ~4 KiB shared prefix (Apple Silicon,
 arm64 NEON): **~34.7 GB/s vs ~3.3 GB/s — ~10x.**
 
+> **Note (June 2026).** Active development continues at
+> [go-simd/matchlen](https://github.com/go-simd/matchlen), where the kernel now
+> covers all six 64-bit SIMD targets. **ppc64le is natively measured on real
+> POWER10** (GCC Compile Farm, VSX, Go 1.26.4): **~6.3× scalar (5320 vs 841
+> MB/s)**. s390x stays qemu-validated for correctness only; native s390x
+> throughput is pending (no GitHub-hosted IBM Z runner). The scalar fallback is
+> additionally build+test validated bit-exact on **ppc64 (big-endian)** on real
+> POWER9 silicon — **six SIMD targets, validated on seven architectures**.
+
 ## Regenerating
 
 go-asmgen is a generate-time tool, not a dependency (the `*_gen.go` are
